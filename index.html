@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dave Russell | Web Developer</title>
+
+  <!-- Goole Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ms+Madi&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Sacramento&family=Yellowtail&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap Script/Stylesheet -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/70b43a2399.js" crossorigin="anonymous"></script>
+
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="css/styles.css">
+
+</head>
+
+<body data-bs-spy="scroll" data-bs-target="#nav1">
+
+
+  <!-- Nav Bar -->  
+  <div id="nav1" class="fixed-top navbar">
+    <ul class="nav">
+      <li class="nav-item">
+        <a class="nav-link"href="#title">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link"href="#about">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#projects">Projects</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#contact">Contact</a>
+      </li>
+      <li class="nav-item">
+        <button id="mode-switch" onclick="setTheme()">
+          <i class="fa-solid fa-sun mode-icon"></i>
+          <i class="fa-solid fa-moon mode-icon"></i>
+        </button>
+      </li>
+    </ul>
+  </div>
+
+
+  <!-- Title -->
+
+  <section id="title">
+    <div class="first contain">
+      <h1 class="title">Dave Russell</h1>
+      <h3 class="subtitle">full-stack web developer.</h3>
+      <div>
+        <a href="#about">
+          <img id="downarrow" src="./images/double-down-arrow.png" alt="down_arrow">
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- About -->
+
+  <section id="about">
+    <div class="second contain">
+      <h1 class="heading">about me.</h1>
+      <div class="med-contain">
+        <div class="med-box">
+          <h3 class="subheading">Who am I?</h3>
+          <p>I'm Dave! Full-stack Web Developer. I create clean, efficient 
+            and responsive Web-applications.</p>
+          <p>I'm experienced in using front and back end technologies, including: JavaScript, React, 
+            Node, Express and SQL.</p>
+          <p>In my free time I like to develop side projects to challenge myself and improve my skills. 
+            Some examples are in the Projects section below.</p>
+        </div>
+        <div class="med-box">
+          <h3 class="subheading">What I do</h3>
+          <div class="bubblebox">
+            <div class="bubble">
+              <p class="js">JavaScript</p>
+            </div>
+            <div class="bubble">
+              <p class="ht">HTML</p>
+            </div>
+            <div class="bubble">
+              <p class="cs">CSS</p>
+            </div>
+            <div class="bubble">
+              <p class="react">React</p>
+            </div>
+            <div class="bubble">
+              <p class="psql">PostgreSQL</p>
+            </div>
+            <div class="bubble">
+              <p>SQL</p>
+            </div>
+            <div class="bubble">
+              <p>Node.js</p>
+            </div>
+            <div class="bubble">
+              <p>Express</p>
+            </div>
+            <div class="bubble">
+              <p>Axios</p>
+            </div>
+            <div class="bubble">
+              <p>EJS</p>
+            </div>
+            <div class="bubble">
+              <p>JQuery</p>
+            </div>
+            <div class="bubble">
+              <p>Git</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Projects -->
+
+  <section>
+    <div id="projects" class="third contain">
+      <h1 class="heading">projects.</h1>
+
+      <div class="box-contain">
+        <div class="l-box txt-box">
+          <h3 class="subheading">Hobby Website</h3>
+          <p>A fun website for hosting video game guides, blogs and miscellaneous Web apps.</p>
+          <p>I created this website to experement with css styling and techniques.</p>
+          <a href="./Gaming Hobby/index.html"><button class="go-button">Let's Go!</button></a>
+        </div>
+        <div class="r-box img-box">
+          <a href="./Gaming Hobby/index.html">
+            <img class="img" src="./images/f1.png" alt="hobby_website">
+          </a>
+        </div>
+      </div>
+
+      <div class="box-contain">
+        <div class="l-box img-box">
+          <a href="./product/index.html">
+            <img class="img" src="./images/product.png" alt="product_page">
+          </a>
+        </div>
+        <div class="r-box txt-box">
+          <h3 class="subheading">Product Page</h3>
+          <p>Modern product page featuring the 'best' mobile app.</p>
+          <p>A reactive product page that displays clearly on desktop and mobile browsers. </p>
+          <a href="./product/index.html"><button class="go-button">Show me</button></a>
+        </div>
+      </div>
+
+      <div class="box-contain">
+        <div class="l-box txt-box">
+          <h3 class="subheading">Book Notes</h3></a>
+          <p>A website for book reviews.</p>
+          <p>Front-end written in HTML & CSS and EJS.</p>
+          <p>Back-end runs on the Express and Node.js</p>
+          <a href="http://localhost:3000/"><button class="go-button">Check it!</button></a>
+        </div>
+        <div class="r-box img-box">
+          <a href="http://localhost:3000/">
+            <img class="img" src="./images/book.png" alt="book_notes">
+          </a>
+        </div>
+      </div>
+
+      <div class="box-contain">
+        <div class="l-box img-box">
+          <a href="./mondrian/mondrian.html">
+            <img class="img" src="./images/art.png" alt="css_art">
+          </a>
+        </div>
+        <div class="r-box txt-box">
+          <h3 class="subheading">CSS Art</h3>
+          <p>A selection of famous artworks re-created with code.</p>
+          <p>Some fun with CSS Grid for scalable, accurate positioning.</p>
+          <a href="./mondrian/mondrian.html"><button class="go-button">Interesting</button></a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- Contact -->
+
+  <section id="contact">
+    <div class="fourth contain">
+      <div>
+        <h1 class="heading">contact.</h1>
+        <p>Interested in what I do, or just want to say hi?</p>
+        <a href="mailto:russell.flay@gmail.com">
+          <button class="go-button">Send me an email!</button>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Footer -->
+
+  <section id="footer">
+    <div class="footer">
+        <i class="social-icon fa-brands fa-facebook-f"></i>
+        <i class="social-icon fa-brands fa-twitter"></i>
+        <i class="social-icon fa-brands fa-github"></i>
+        <p>© 2024 | Dave Russell</p>
+      </div>
+  </section>
+
+  <!-- Javscript -->
+  <script src="index.js" ></script>
+
+</body>
+

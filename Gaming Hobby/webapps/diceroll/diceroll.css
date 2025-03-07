@@ -1,0 +1,121 @@
+body {
+  margin: 0;
+  height: 100vh;
+  text-align: center;
+}
+h1 {
+  margin: 0;
+  padding: 0;
+}
+h2 {
+  margin: 0;
+  padding: 3% 0 1%;
+}
+button {
+  padding: 0.3em 1em;
+  margin-right: 2%;
+  font-size: 1em;
+}
+.title {
+  height: 10%;
+  text-align: center;
+  background-color: dodgerblue;
+  flex-wrap: wrap;
+  font-size: 2vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.main {
+  height: 90%;
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  grid-template-rows: auto;
+}
+@media (max-aspect-ratio: 4/3) {
+  .main {
+    grid-template-columns: auto;
+    grid-template-rows: 60% 40%;
+  }
+}
+.dicebox {
+  height: 100%;
+  background-color: green;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.active {
+  max-height: 30%;
+  max-width: 100%;
+  display: grid;
+  aspect-ratio: 2 / 1;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  border: 2px solid;
+}
+.results {
+  background-color: beige;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.results:hover {
+  cursor: pointer;
+}
+#result {
+  font-size: 15vh;
+}
+.reserve {
+  max-height: 30%;
+  max-width: 100%;
+  display: grid;
+  aspect-ratio: 3 / 2;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: (2, 1fr);
+  border: 2px solid;
+}
+.dice {
+  background-color: aliceblue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.dice2 {
+  background-color: #7d945d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.dimage{
+  height: auto;
+  width: 100%;
+  display: block;
+  margin: auto;
+}
+.dimage:hover {
+  cursor: pointer;
+}
+@media (min-aspect-ratio: 4/3) {
+  .active {
+    max-height: 100%;
+    max-width: 60%;
+    display: grid;
+    aspect-ratio: 2 / 1;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    border: 2px solid;
+  }
+  .reserve {
+    max-height: 100%;
+    max-width: 45%;
+    display: grid;
+    aspect-ratio: 3 / 2;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: (2, 1fr);
+    border: 2px solid;
+  }
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Simon</title>
+  
+  <!-- Goole Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="simon.css">
+
+</head>
+
+<!-- ISSUE: elements extend past vertical viewport at landscape low resolution -->
+<!-- FIX: dynamically scale size of simon-unit to fit into viewport at any resolution -->
+
+<body>
+
+  <div class="main">
+  
+    <div class="heading">
+      <h1 id="title">Simon</h1>
+    </div>
+
+    <div class="buttons">
+      <button onclick="start()">Start</button>
+    </div>
+  
+    <div class="game">
+      <div class="simon-unit">
+        <div type="button" id="green" class="btn green"></div>
+        <div type="button" id="red" class="btn red"></div>
+        <div type="button" id="yellow" class="btn yellow"></div>
+        <div type="button" id="blue" class="btn blue"></div>
+      </div>
+    </div>
+  
+    <div class="footer">
+        <h3 id="level" class="stats">Level: </h3>
+        <h3 id="highscore" class="stats">Best: </h3>
+    </div>
+
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+  <script src="simon.js"></script>
+
+</body>
+
+</html>

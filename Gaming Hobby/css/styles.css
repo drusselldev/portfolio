@@ -1,0 +1,352 @@
+body{
+    color: rgb(232,232,232);
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+}
+
+/* Navbar */
+.navbar{
+    background: rgba(0,0,0,0.5);
+    padding: 0.8% 2%;
+    border-bottom: 1px solid rgb(5,122,240);
+    min-height: 7%;
+}
+.navbar-brand{
+    color: rgb(5,122,240);
+    font-family: 'Press Start 2P', sans-serif;
+    font-size: 1rem;
+}
+.nav-link{
+    font-size: 1rem;
+    color: rgb(149,152,155);
+}
+.nav-item{
+    padding: 0 15px;
+}
+.ddmenu{
+    background: rgb(0,0,0);
+    color: rgb(149,152,155);
+}
+.dditem{
+    color: rgb(149,152,155);
+}
+.dditem:hover{
+    background: rgb(0,0,0);
+    color: rgb(232,232,232);
+}
+
+/* Filler */
+.first{
+    margin: 0;
+    height: 7vh;
+    background-color: rgb(28,28,28);
+}
+
+/* Title */
+.main1{
+    background-color: rgb(28,28,28);
+    background-image: linear-gradient(to bottom right, rgb(48,48,48), rgb(10,10,10));
+    /* background-image: url("../images/dark_sand.png"); */
+    background-size: cover;
+    padding: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+.logobox{
+    text-align: center;
+    animation: fadein1 2s;
+}
+.logoimg{
+    width: 20%;
+    margin: 10% auto;
+    display: block;
+}
+.scroll-indicator{
+    text-align: center;
+    margin: 20%;
+}
+
+@keyframes fadein1{
+    0%      {opacity: 0;}
+    100%    {opacity: 1;}
+}
+
+@keyframes fadein2{
+    0%      {opacity: 0;}
+    50%      {opacity: 0;}
+    100%    {opacity: 1;}
+}
+
+@keyframes bounce{
+    0%      {transform: translateY(0%);}
+    50%     {transform: translateY(20%);}
+    100%    {transform: translateY(0%);}
+}
+
+.downarrow{
+    color: rgb(232,232,232);
+    font-size: 3rem;
+    animation: fadein2 2s, bounce 1s infinite;
+}
+.downarrow:hover{
+    color: rgb(5,122,240);
+}
+
+/* Web Apps */
+.main2{
+    background-color: rgb(10,10,10);
+    padding: 10% 15% 5%;
+}
+.abox{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-between;
+    gap: 1%;
+}
+.mbox{
+    max-width: 49%;
+    margin-bottom: 1.5rem;
+}
+.mbox:hover{
+    cursor: pointer;
+    .wimage{
+        outline: 2px solid rgb(5,122,240);
+    }
+}
+.wimage{
+    object-fit: cover;
+    width: 100%;
+}
+
+
+/* Guides */
+.main3{
+    background-color: rgb(10,10,10);
+    padding: 5% 15%;
+}
+.bbox{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    gap: 1%;
+}
+.sbox{
+    max-width: 33%;
+}
+.sbox:hover{
+    cursor: pointer;
+    .gimage{
+        outline: 2px solid rgb(5,122,240);
+    }
+}
+.gimage{
+    object-fit: cover;
+    width: 100%;
+}
+
+
+/* Blog */
+.main4{
+    background-color: rgb(10,10,10);
+    padding: 5% 15% 10%;
+}
+.bigbox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(28,28,28);
+}
+@media screen and (min-width: 900px) {
+    .bigbox{
+        flex-direction: row;
+    }
+}
+.bigbox:hover{
+    outline: 2px solid rgb(5,122,240);
+    cursor: pointer;
+}
+.textbox{
+    padding: 5%;
+    width: 100%;
+}
+@media screen and (min-width: 900px) {
+    .textbox{
+        width: 40%
+    }
+}
+.imgbox{
+    width: 100%;
+}
+@media screen and (min-width: 900px) {
+    .imgbox{
+        width: 60%;
+    }
+}
+.blogimage{
+    object-fit: cover;
+    max-width: 100%;
+}
+
+/* Blog Page Posts */
+.blog1{
+    background-color: rgb(10,10,10);
+    padding: 2% 10% 10%;
+}
+.blogbox{
+    display: flex;
+    flex-direction: column;
+    margin: 5% 0%;
+    background-color: rgb(28,28,28);
+}
+@media screen and (min-width: 900px) {
+    .blogbox{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+    }
+}
+.postimage{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+.fimgbox{
+    position: relative;
+    width: 100%;
+}
+@media screen and (min-width: 900px) {
+    .fimgbox{
+        width: 50%;
+    }
+}
+.left-img-text{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    padding: 0.5% 4% 0.5% 1%;
+    /* background-color: rgb(5,122,240); */
+    background-color: blue;
+    clip-path: polygon(0 0, 90% 0, 100% 100%, 0% 100%);
+}
+.left-img-text p{
+    margin: 0%;
+}
+.right-img-text{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 0;
+    padding: 0.5% 1% 0.5% 5%;
+    background-color: rgb(0,0,255);
+    clip-path: polygon(7% 0, 100% 0, 100% 100%, 0% 100%);
+}
+.right-img-text p{
+    margin: 0%;
+}
+.ftextbox{
+    padding: 2%;
+    width: 100%;
+}
+@media screen and (min-width: 900px) {
+    .ftextbox{
+        width: 50%;
+    }
+}
+.ftextbox p{
+    color: rgb(149,152,155);
+    font-size: 1rem;
+    text-align: left;
+}
+
+/* Misc */
+.title{
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+@media screen and (min-width: 700px) {
+    .title{
+        font-size: 3rem;
+    }
+}
+.subtitle{
+    color: rgb(5,122,240);
+    font-size: 1.5rem;
+    text-align: left;
+    margin: 0;
+}
+.text{
+    color: rgb(149,152,155);
+    font-size: 1rem;
+    text-align: left;
+}
+.btext{
+    color: rgb(5,122,240);
+    font-size: 1rem;
+    text-align: left;
+}
+.blogtitle{
+    font-size: 2.5rem;
+    margin: 0;
+}
+.title2{
+   font-size: 2rem;
+   margin-top: 1rem;
+}
+.title3{
+    font-size: 2rem;
+    margin: 0;
+}
+@media screen and (max-width: 700px) {
+
+}
+.btn2{
+    color: rgb(232,232,232);
+    border-color: rgb(5,122,240);
+    margin: 10px 0;
+}
+.btn2:hover{
+    background-color: rgba(5,122,240, 0.2);
+    border-color: rgb(5,122,240);
+}
+
+@media screen and (max-width: 700px) {
+    .main2{
+        padding: 10% 0% 5%;
+    }
+    .main3{
+        padding: 10% 0% 5%;
+    }
+    .main4{
+        padding: 10% 0% 5%;
+    }
+    .title3{
+        font-size: 1.5rem;
+    }
+}
+
+/* Footer */
+.footer{
+    border-top: 1px solid rgb(5,122,240);
+    background-color: rgb(0,0,0);
+    color: rgb(149,152,155);
+    padding: 1% 2%;
+    text-align: center;
+}
+.foot-text{
+    font-size: 0.8rem;
+}
+.social-icon{
+    margin: 1rem 10px;
+}
+.flaticonlink{
+    font-size: 0.6rem;
+    color: rgb(149,152,155);
+    visibility: hidden;
+}
+
+  
+

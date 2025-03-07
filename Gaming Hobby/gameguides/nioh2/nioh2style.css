@@ -1,0 +1,111 @@
+body{
+    color: #bababa;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    background-color: rgb(28,28,28);
+    background-image: url("images/nioh2_bg.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.title{
+    font-family: "Protest Revolution", sans-serif;
+    text-shadow: -3px 2px black;
+    color: #daac71;
+    line-height: 2;
+    font-size: 3rem;
+    border-top: 2px solid #daac71;
+    border-bottom: 2px solid #daac71;
+}
+.subtitle{
+    text-align: center;
+    font-family: "Protest Revolution", sans-serif;
+    text-shadow: -3px 2px black;
+    color: lightgray;
+    line-height: 2;
+    font-size: 2rem;
+}
+.subtitle1{
+    text-align: center;
+    font-family: "Protest Revolution", sans-serif;
+    text-shadow: -3px 2px black;
+    color: lightgray;
+    line-height: 2;
+    font-size: 2rem;
+    margin-top: 3%;
+}
+
+/* Navbar */
+.navbar{
+    background: rgba(0,0,0,0.5);
+    padding: 0.8% 2%;
+    border-bottom: 1px solid red;
+    min-height: 7%;
+}
+.navbar-brand{
+    color: red;
+    font-family: 'Press Start 2P', sans-serif;
+    font-size: 1rem;
+}
+.nav-link{
+    font-size: 1rem;
+    font-family: "Protest Revolution", sans-serif;
+    text-shadow: -3px 2px black;
+    color: lightgray;
+}
+.nav-item{
+    padding: 0 10px;
+}
+
+/* Filler */
+.first{
+    margin: 0;
+    height: 7vh;
+    background-color: rgb(28,28,28);
+}
+/* Main */
+.logo{
+    padding: 3% 0% 0%;
+    width: 30%;
+}
+.mainpage{
+    margin: 3% 10%;
+    padding: 1%;
+    border: 2px solid #daac71;
+    background-color: black;
+    opacity: .85;
+}
+.sub-section{
+    text-align: left;
+    padding: 2% 5%;
+}
+.sub-section li{
+    margin-bottom: 2%;
+}
+.ngtable{
+    width: 100%;
+    text-align: center;
+    margin: auto;
+    border: 2px solid;
+}
+table{
+    width: 80%;
+    text-align: center;
+    margin: auto;
+    border: 2px solid;
+}
+td{
+    border: 1px solid;
+}
+th{
+    border: 1px solid;
+}
+.note {
+    border: 3px dotted;
+    border-radius: 15px;
+    padding: 5%;
+    margin: 10% 20%;
+}
+hr{
+    border: 3px solid gray;
+}

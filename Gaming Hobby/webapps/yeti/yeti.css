@@ -1,0 +1,162 @@
+@font-face {
+  font-family: DOS;
+  src: url("Perfect DOS VGA 437 Win.ttf");
+  /* src: url("ModernDOS9x14.ttf"); */
+}
+
+body{
+  text-align: center;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-family: DOS, sans-serif;
+  font-size: 2rem;
+}
+
+.title{
+  margin: 0;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: 400;
+}
+
+.subtitle{
+  margin: 0;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: 400;
+}
+
+.heading{
+  width: 640px;
+  display: flex;
+  justify-content: space-around;
+  margin: 1%;
+}
+
+/* Game */
+.main{
+  display: grid;
+  grid-template-columns: 1;
+  grid-template-rows: 50px 50px 1fr 50px 50px;
+}
+.menu{
+  padding: 0 10%;
+  margin: 0 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #A7A7A7;
+  color: #000000;
+}
+.menuitem{
+  padding: 0 1%;
+  margin: 0;
+}
+.menuitem:hover{
+  background-color: #000000;
+  color: #A7A7A7;
+}
+.stats{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: #000000;
+}
+.le{
+  margin: 0 2%;
+  text-align: left;
+}
+.hpbar{
+  height: 100%;
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: repeat(20, 1fr);
+  grid-template-rows: 1;
+}
+
+.text{
+  width: 60%;
+  margin: 0;
+  display: block;
+  text-align: left;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 1rem;
+}
+
+.text b {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.game{
+  width: 1600px;
+  height: 1000px;
+  display: grid;
+  grid-template-columns: repeat(40, 40px);
+  grid-template-rows: repeat(40, 25px);
+  background-color: #000000;
+}
+
+.square{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* border: 1px dotted #FFFFFF; */
+  font-size: 2rem;
+}
+
+/* lighting */
+.lit{
+  opacity: 0.9;
+}
+.dim{
+  opacity: 0.4;
+}
+.dark{
+  opacity: 0.1;
+}
+
+/* UI colours */
+.rgb-grey{
+  color: #A7A7A7;
+}
+.back-blue{
+  background-color: #0100A6;
+}
+.back-yellow{
+  background-color: #FFFE56;
+}
+.back-black{
+  background-color: #000000;
+}
+.back-grey{
+  background-color: #A7A7A7;
+}
+
+/* object and tile colours */
+.player{
+  color: #FFFFFF;
+}
+.floor{
+  background-color: #323232;
+}
+.wall{
+  color: #A7A7A7;
+  background-color: #646464;
+}
+.monster{
+  color: #0492C2;
+}
+.door{
+color: #996633;
+}
+.exit{
+color: #4CBB17;
+}
+.entry{
+  color: #4CBB17;
+}
+.loot{
+  color: #FFFE56;
+}

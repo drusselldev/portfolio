@@ -1,0 +1,201 @@
+body{
+  text-align: center;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.title{
+  margin: 0;
+  font-family: "Permanent Marker", cursive;
+  font-size: 2rem;
+}
+.title2{
+  margin: 0;
+  font-family: "Permanent Marker", cursive;
+  color: red;
+  transform: translate(-1rem) rotate(-5deg);
+
+}
+
+/* Title */
+.heading{
+  width: 450px;
+  display: flex;
+  justify-content: center;
+  gap: 3%;
+  padding: 1%;
+}
+.hidden{
+  visibility: hidden;
+}
+.back{
+  color: #008CBA;
+}
+.back:hover{
+  cursor: pointer;  
+}
+
+/* Game Board */
+.board{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  width: 450px;
+  height: 450px;
+  border: 1px solid black;
+  margin: 5px;
+}
+.box{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  border: 1px solid black;
+}
+.square{
+  font-size: 1.7em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #555555;
+  font-family: "Kalam", cursive;
+}
+.square:hover{
+  background-color: #008CBA25;
+}
+.pressed{
+  background-color: #008CBA50;
+}
+.edited{
+  color: #555555;
+  font-family: "Kalam", cursive;
+}
+.error{
+  color: #FF0000;
+  background-color: #FF000025;
+}
+
+
+/* Footer */
+footer{
+  height: 100px;
+}
+
+
+/* Number Selector */
+.footnumbers{
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  grid-template-rows: 1;
+  width: 450px;
+  height: 45px;
+}
+.footnumbers div{
+  align-self: center;
+}
+.number{
+  font-size: 1.2em;
+  border: none;
+  border-radius: 2px;
+  width: 45px;
+  height: 45px;
+}
+
+
+/* Mode Buttons */
+.buttons{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 5px;
+  height: 50px;
+}
+.eraser-img{
+  height: 20px;
+}
+.erase{
+  border: none;
+  border-radius: 0.375rem;
+  color: white;
+  width: 25%;
+  background-color: #008CBA;
+  border: 2px solid #008CBA;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.erase:hover {
+  background-color: #008CBA90;
+  border: #008CBA90
+}
+.newgame{
+  border: none;
+  border-radius:  0.375rem;
+  color: white;
+  width: 30%;
+  background-color: #228B22;
+  border: 2px solid #228B22;
+}
+.newgame:hover {
+  background-color: #228B2290;
+  border: #228B2290;
+}
+.solve{
+  border: none;
+  border-radius: 0.375rem;
+  color: white;
+  width: 30%;
+  background-color: #ff3333;
+  border: 2px solid #ff3333;
+}
+.solve:hover {
+  background-color: #ff333390;
+  border: #ff333390;
+}
+
+
+/* How To Play */
+.howto{
+  text-align: left;
+  width: 450px;
+  padding: 5px;
+}
+
+
+
+/* Media */
+@media only screen and (max-width: 450px) {
+
+  .heading {
+    width: 360px;
+  }
+  .board{
+    width: 360px;
+    height: 360px;
+  }
+  .square{
+    font-size: 1.3em;
+  }
+  .number{
+    width: 35px;
+    height: 35px;
+    font-size: 1em;
+  }
+  .footer{
+    height: 85px;
+  }
+  .footnumbers{
+    width: 360px;
+    height: 40px;
+  }
+  .buttons{
+    height: 40px;
+  }
+  .eraser{
+    height: 20px;
+  }
+  .howto{
+    width: 360px;
+  }
+
+}

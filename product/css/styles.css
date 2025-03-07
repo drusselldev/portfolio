@@ -1,0 +1,169 @@
+body{
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+}
+p{
+    color: #8f8f8f;
+}
+
+
+/* Headings */
+.big-heading{
+    font-size: 3.5rem;
+    line-height: 1.5;
+    font-weight: 900;
+}
+.section-heading{
+    font-size: 2.5rem;
+    line-height: 1.5;
+    font-weight: 700;
+}
+
+
+/* Containers */
+.container-fluid{
+    padding: 7% 15%;
+}
+
+/* Sections */
+.colored-section{
+    background-color: #0066cc;
+    color: white;
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+}
+.white-section{
+    background-color: white;
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+}
+
+
+/* Navbar */
+.navbar{
+    padding: 0 0 3rem;
+}
+.navbar-brand{
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+.nav-item{
+    padding: 0 18px;
+}
+.nav-link{
+    font-size: 1.2rem;
+}
+.download-button{
+    margin: 5% 3% 5% 0%;
+}
+.title-image{
+    transform: rotate(25deg);
+    width: 25%;
+    position: absolute;
+}
+.brand-img{
+    width: 30%;
+    margin-top: 2%;
+    margin-bottom: 5%;
+}
+
+/* Title */
+#title .container-fluid{
+    padding: 3% 7%;
+    text-align: left;
+}
+
+/* Features */
+#features{
+    position: relative;
+}
+.feature-box{
+    padding: 0% 5%;
+}
+.feature-title{
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+.feature-icon{
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+.fa-circle-check{
+    color: #009900;
+}
+.fa-bolt{
+    color: #FFFF00;
+}
+.fa-bullseye{
+    color: #ff0000;
+}
+
+
+/* Testimonials */
+#testimonials{
+background-color: #0066cc;
+position: relative;
+}
+.testimonial-image{
+width: 10%;
+border-radius: 100%;
+margin: 20px;
+}
+.testimonial-text{
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+
+/* Pricing */
+#pricing{
+padding: 7%;
+}
+.pricing-column{
+padding: 3% 2%;
+}
+
+.price-heading{
+    font-size: 1.5rem;
+    font-weight: 700; 
+}
+.price-text{
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+.brdiv{
+    margin: 2%;
+    font-size: 1.5em;
+}
+
+
+/* Footer */
+#footer{
+    line-height: 2;
+}
+.social-icon{
+    margin: 20px 10px;
+    font-size: 1.5em;
+}
+
+
+/* Media breakpoints */
+@media (max-width: 1199px){
+    #title .container-fluid{
+        text-align: center;
+    }
+    .title-image{
+        transform: rotate(0deg);
+        width: 40%;
+        position: relative;
+        margin-bottom: -45%;
+    }
+}
+
+

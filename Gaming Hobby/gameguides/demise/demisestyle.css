@@ -1,0 +1,98 @@
+body{
+    color: #bababa;
+    text-align: center;
+    background-color: #393E46;
+    background-image: url("images/demise-cover-art.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.title{
+    font-family: 'Nanum Myeongjo', serif;
+    text-shadow: -3px 2px black;
+    color: #daac71;
+    line-height: 2;
+    font-size: 3rem;
+    border-top: 2px solid #daac71;
+    border-bottom: 2px solid #daac71;
+}
+h3{
+    text-align: center;
+    font-family: 'Nanum Myeongjo', serif;
+    text-shadow: -3px 2px black;
+    color: lightgray;
+    line-height: 2;
+    font-size: 2rem;
+    padding-top: 2%;
+}
+h4{
+    font-size: medium;
+    line-height: 50%;
+    font-weight: bold;
+}
+
+/* Navbar */
+.navbar{
+    background: rgba(0,0,0,0.8);
+    padding: 0.8% 2%;
+    border-bottom: 1px solid red;
+    min-height: 7%;
+}
+.navbar-brand{
+    color: red;
+    font-family: 'Press Start 2P', sans-serif;
+    font-size: 1rem;
+}
+.nav-link{
+    font-size: 1rem;
+    font-family: 'Nanum Myeongjo', serif;
+    text-shadow: -3px 2px black;
+    color: lightgray;
+}
+.nav-item{
+    padding: 0 10px;
+}
+
+/* Main */
+.heading{
+    height: 20%;
+    padding: 3%;
+}
+.demise-logo{
+    padding: 3%;
+    width: 30%;
+}
+.mainpage{
+    margin: 0% 18% 5%;
+    padding: 1%;
+    border: 2px solid #daac71;
+    background-color: rgba(0,0,0,0.9);
+}
+.sub-section{
+    text-align: left;
+    padding: 2% 5%;
+}
+.sub-section li{
+    margin-bottom: 2%;
+}
+table{
+    width: 80%;
+    margin: auto;
+    border: 2px solid;
+    text-align: center;
+}
+td{
+    border: 1px solid;
+}
+th{ 
+    border: 1px solid;
+}
+.note {
+    border: 3px dotted;
+    border-radius: 15px;
+    padding: 5%;
+    font-style: italic;
+}
+hr{
+    border: 3px solid gray;
+}

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dice Roll</title>
+
+    <link rel="stylesheet" href="diceroll.css" />
+  </head>
+
+    <!-- TODO1. update individual dice result to be clearer -->
+    <!-- TODO2. Active dice infinite scalability -  -->
+    <!-- 1 active box for each dice type (6 boxes total) -->
+    <!-- clicking a dice type adds 1 to the total for that type -->
+    <!-- use image text in bottom right corner for die count, for each die -->
+    <!-- ** this allows merging of acttive and reserver dice pools for a cleaner interface ** -->
+
+
+  <body>
+
+    <div class="title">
+      <button onclick="window.location.href='diceroll.html';">Reset</button>
+      <h1>Dice Roll</h1>
+    </div>
+
+    <div class="main">
+
+      <div class="dicebox">
+
+        <h2>Click to remove dice</h2>
+        <div class="active">
+          <div class="dice" onclick="removeDice(1)">
+            <img id="1" class="dimage" src="images/blank.png" alt="blank">
+          </div>
+          <div class="dice2" onclick="removeDice(2)">
+            <img id="2" class="dimage" src="images/blank.png" alt="blank">
+          </div>
+          <div class="dice" onclick="removeDice(3)">
+            <img id="3" class="dimage" src="images/blank.png" alt="blank">
+          </div>
+          <div class="dice2" onclick="removeDice(4)">
+            <img id="4" class="dimage" src="images/blank.png" alt="blank">
+          </div>
+          <div class="dice2" onclick="removeDice(5)">
+            <img id="5" class="dimage" src="images/blank.png" alt="blank">
+          </div>
+          <div class="dice" onclick="removeDice(6)">
+            <img id="6" class="dimage" src="images/blank.png" alt="blank">
+          </div>
+          <div class="dice2" onclick="removeDice(7)">
+            <img id="7" class="dimage" src="images/blank.png" alt="blank">
+          </div>
+          <div class="dice" onclick="removeDice(8)">
+            <img id="8" class="dimage" src="images/blank.png" alt="blank">
+          </div>
+        </div>
+
+        <h2>Click to add dice</h2>
+        <div class="reserve">
+          <div class="dice" onclick="addDice(4)">
+            <img class="dimage" src="images/d4.png" alt="d4">
+          </div>
+          <div class="dice2" onclick="addDice(6)">
+            <img class="dimage" src="images/d6.png" alt="d6">
+          </div>
+          <div class="dice" onclick="addDice(8)">
+            <img class="dimage" src="images/d8.png" alt="d8">
+          </div>
+          <div class="dice" onclick="addDice(10)">
+            <img class="dimage" src="images/d10.png" alt="d10">
+          </div>
+          <div class="dice2" onclick="addDice(12)">
+            <img class="dimage" src="images/d12.png" alt="d12">
+          </div>
+          <div class="dice" onclick="addDice(20)">
+            <img class="dimage" src="images/d20.png" alt="d20">
+          </div>
+        </div>
+
+      </div>
+
+      <div class="results" onclick="calculate()">
+        <div class="totals">
+          <h2>Click to roll</h2>
+          <h1 id="workings"></h1>
+          <h1 id="result"></h1>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Javascript -->
+    <script src="diceroll.js"></script>
+    
+  </body>
+</html>
