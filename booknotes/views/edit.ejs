@@ -1,0 +1,65 @@
+<%- include("partials/head.ejs") %>
+
+<body>
+
+  <% if (locals.review) { %>
+
+    <div class="main">
+
+      <% if (locals.review.book_id){ %>
+        <h1>Edit Review:</h1>
+      <% } %>
+
+      <div class="sub">
+
+        <div class="cover-art">
+          <img class="cover-img" src="<%= review.cover %>" alt="<%= review.title %> book cover">
+        </div>
+
+        <div class="content">
+
+          <form id="upd" action="/update" method="POST">
+            
+            <label for="title">Title</label>
+            <input type="text" name="title" value="<%= review.title %>">
+            
+            <label for="author">Author</label>
+            <input type="text" name="author" value="<%= review.author %>">
+            
+            <label for="isbn">ISBN 10</label>
+            <input type="text" name="isbn" value="<%= review.isbn %>">
+            
+            <label for="date read">Date Read</label>
+            <input type="date" name="date" value="<%= review.date_read.getFullYear() + "-" + (((review.date_read.getMonth() + 1).toString()).padStart(2,"0")) + "-" + (review.date_read.getDate().toString()).padStart(2,"0") %>">
+            
+            <label for="score">Rating</label>
+            <input type="text" name="score" value="<%= review.score %>">
+            
+            <label for="review">Review</label>
+            <textarea name="review"><%= review.review %></textarea>
+
+            <input type="hidden" name="id" value="<%= review.book_id %>">
+            
+            <div class="buttons">
+              <input class="button" type="submit" value="Apply">
+              <button class="button" type="button" onclick="window.location.href='/'">Cancel</button>
+            </div>
+
+          </form>
+
+          <form id="del" action="/delete" method="POST">
+            <input type="hidden" name="id" value="<%= review.book_id %>">
+            <input class="button" type="submit" value="Delete">
+          </form>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  <% } else { %>
+    <p>nothing to display</p>
+  <% } %>
+
+</body>

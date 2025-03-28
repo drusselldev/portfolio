@@ -1,0 +1,72 @@
+.main{
+  background-color: #FFF8E8;
+  font-family: "Crimson Text", serif;
+  margin: 0 5%;
+  border: 2px solid;
+  border-radius: 20px;
+  padding: 2%;
+}
+
+.titleblock{
+  background-color: #AAB396;
+}
+.pagetitle{
+  font-family: "Limelight", serif;
+  font-weight: 400;
+  font-size: 4em;
+  margin: 0;
+}
+.subtitle{
+  font-size: 1.5em;
+  margin: 0;
+}
+
+.sub{
+  background-color: #F7EED3;
+  display: flex;
+  justify-content: center;
+  margin-top: 5%;
+  border-radius: 5px;
+}
+.sub p {
+  font-family: "Montserrat", sans-serif;
+}
+
+.cover-art{
+  display: flex;
+  justify-content: center;
+}
+.cover-img{
+  border-radius: 5px;
+  max-height: 100%;
+  object-fit: contain;
+}
+.content{
+  flex-grow: 4;
+  margin: 5%;
+}
+.title{
+  margin: 0;
+}
+.author{
+  margin-top: 0;
+}
+.button{
+  width: 20%;
+}
+form{
+  display: flex;
+  flex-direction: column;
+}
+.buttons{
+  flex-direction: row;
+  justify-content:  space-evenly;
+}
+
+/* Media breakpoints */
+@media (min-width: 1200px){
+  .main {
+    margin: 0 20%;
+  }
+}
+

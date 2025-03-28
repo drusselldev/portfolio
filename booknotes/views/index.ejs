@@ -1,0 +1,80 @@
+<%- include("partials/head.ejs") %>
+
+<body>
+
+<div class="main">
+
+  <div class="titleblock">
+    <h1 class="pagetitle">Book Notes</h1>
+    <h3 class="subtitle">by David Russell</h3>
+  </div>
+
+
+  <!-- TODO: add sorting functionality (with asc and desc toggle) -->
+      <!-- use get request and read order=value to determine order -->
+
+  <p><a href="/new">Add Book</a></p>
+
+
+  <!-- add sort method to GET -->
+  <p class="sort">Sort by: <a href="/?o=1">Title</a> <a href="/?o=2">Author</a>  <a href="/?o=3">Rating</a> <a href="/?o=4">Newest</a></p>
+
+  <% if (locals.reviews.length > 0 || locals.order > 0) { %>
+
+    <div>
+      
+      <!-- sort reviews by chosen method using GET -->
+      <% if (order == 1){ %>
+      <% reviews.sort((a, b) => a.title.localeCompare(b.title)) %>
+      <% } %>
+      <% if (order == 2){ %>
+        <% reviews.sort((a, b) => a.author.localeCompare(b.author)) %>
+      <% } %>
+      <% if (order == 3){ %>
+        <% reviews.sort((a, b) => b.score - a.score) %>
+      <% } %>
+      <% if (order == 4){ %>
+        <% reviews.sort((a, b) => b.date_read - a.date_read) %>
+      <% } %>
+
+      <!-- create entry for each book/review in database -->
+      <% reviews.forEach((review) => { %>
+      
+      <div class="sub">
+
+        <div class="cover-art">
+          <img class="cover-img" src="<%= review.cover %>" alt="cover image">
+        </div>
+
+        <div class="content">
+          <h1 class="title"><%= review.title %></h1>
+          <h3 class="author"><%= review.author %></h3>
+          <p class="date">Date Read: <%= review.date_read.toLocaleDateString('default', {month: 'long', day: 'numeric', year: 'numeric' }) %></p>
+          <p class="score">Rating: 
+            <% for(var i = 0; i < review.score; i++ ){ %>
+              <%= "★" %>
+            <% }; %>
+            <% for(var i = 0; i < 5 - review.score; i++ ){ %>
+              <%= "☆" %>
+            <% }; %>
+          </p>
+          <p class="rev">Review: <%= review.review %></p>
+          <form action="/edit" method="POST">
+            <input type="hidden" name="book" value="<%=review.book_id %>">
+            <input class="button" type="submit" value="Edit">
+          </form>
+        </div>
+
+    </div>
+
+    <% }); %>
+    <% } else { %>
+      <p>nothing to display</p>
+    <% } %>
+  </div>
+
+</div>
+  
+</body>
+
+</html>
