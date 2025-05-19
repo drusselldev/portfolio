@@ -83,10 +83,22 @@ const monData = [
     t : 'R',
     gxp : 10,
     thp : 2,
-    atk : 2,
-    def : 2,
+    atk : 3,
+    def : 3,
     dmin : 1,
     dmax : 2,
+    delay : 0,
+    logi : "ra",
+  },
+  bat = {
+    name : 'Bat',
+    t : 'B',
+    gxp : 10,
+    thp : 3,
+    atk : 4,
+    def : 4,
+    dmin : 1,
+    dmax : 3,
     delay : 0,
     logi : "ra",
   },
@@ -98,7 +110,7 @@ const monData = [
     atk : 5,
     def : 5,
     dmin : 2,
-    dmax : 4,
+    dmax : 3,
     delay : 1,
     logi : "ga",
   },
@@ -107,18 +119,18 @@ const monData = [
     t : 'Z',
     gxp : 25,
     thp : 6,
-    atk : 3,
-    def : 3,
-    dmin : 3,
-    dmax : 6,
+    atk : 4,
+    def : 4,
+    dmin : 2,
+    dmax : 5,
     delay : 2,
     logi : "rh",
   },
   skeleton = {
-    name : "B",
+    name : "Skeleton",
     t : 'K',
     gxp : 15,
-    thp : 2,
+    thp : 4,
     atk : 5,
     def : 5,
     dmin : 1,
@@ -144,8 +156,24 @@ let player = {
   chp : 10,
   exp : 0,
   lvl : 1,
-  atk : 20,
-  def : 20,
+  atk : 5,
+  def : 5,
+  dmin : 2,
+  dmax : 4,
+  gold : 0,
+};
+
+//player default
+let pdef = {
+  name : "Player",
+  x : 0,
+  y : 0,
+  thp : 10,
+  chp : 10,
+  exp : 0,
+  lvl : 1,
+  atk : 6,
+  def : 6,
   dmin : 2,
   dmax : 4,
   gold : 0,
@@ -157,18 +185,23 @@ let mon2 = [];
 //loot array
 let loot = [];
 
+//start or title screen on launch
 title();
+// start();
 
 $(document).keydown(function(key) {
   //if on title screen, detect keys
   if (tscreen == true){
     //1
     if (key.which == 49){
-      start();
     };
     //2
     if (key.which == 50){
-      window.location.assign("./help.html");
+    };
+    //enter
+    if (key.which == 13){
+      end();
+      start();
     };
   };
 });
@@ -217,6 +250,21 @@ $(document).keydown(function(key) {
   };
 });
 
+//moves game to simulate camera movement
+//centres camera on player
+function movCam(){
+  console.log("move camera");
+  let x = (10 - player.x) * 64; 
+  let y = (5 - player.y) * 64;
+  document.getElementById("game").style.translate = x + 'px ' + y + 'px';
+};
+
+//resets camera back to top left
+function rstCam(){
+  console.log("reset camera");
+  document.getElementById("game").style.translate = '0px 0px';
+};
+
 //when new game is pressed
 $(".newgame").on("click", function(){
   start();
@@ -232,18 +280,17 @@ $(".help").on("click", function(){
   window.location.assign("./help.html");
 });
 
-//when back is pressed
-$(".back").on("click", function(){
-  window.location.assign("./yeti.html");
-});
-
 function start(){
+  dispGame();
   tscreen = false;
   dfloor = 1;
   clearLevel();
   rstPlr();
   drawLevel();
   begin = true;
+  movCam();
+  $("#game").removeClass("game-title");
+  $("#game").addClass("game");
 };
 
 function end(){
@@ -274,7 +321,7 @@ function clearLevel(){
 //generate a new level, preserve character data
 function nextLevel(){
   dfloor++;
-  if(dfloor == 4){
+  if(dfloor == 2){
     win();
   } else {
     clearLevel();
@@ -291,9 +338,9 @@ function drawLevel(){
   addDoors();
   addFloors();
   setEnt();
-  setExt();
   plcPlr();
   addPlr();
+  setExt();
   numMon = Math.floor(Math.random() * (3) + 1);
   genMon2();
   plcMon2();
@@ -303,118 +350,199 @@ function drawLevel(){
 };
 
 function rstPlr(){
-  player.y = 0;
-  player.x = 0;
-  player.exp = 0;
-  player.lvl = 1;
-  player.thp = 10;
-  player.chp = player.thp;
-  player.atk = 20;
-  player.def = 20;
-  player.gold = 0;
+  player = pdef;
 };
+
+function dispTitle(){
+  $("#game").addClass("game-title");
+  $("#game").removeClass("game");
+};
+
+function dispGame(){
+  $("#game").addClass("game-title");
+  $("#game").removeClass("game");
+};
+
+function colorTitle(){
+  for(let h = 19; h <= 22; h++){
+    for(let v = 7; v <= 7; v++){
+      let change = v + "-" + h;
+      $("#" + change).addClass("monster");
+    };
+  };
+  for(let h = 12; h <= 29; h++){
+    for(let v = 10; v <= 10; v++){
+      let change = v + "-" + h;
+      $("#" + change).addClass("rgb-grey");
+    };
+  };
+
+  for(let h = 21; h <= 27; h++){
+    for(let v = 20; v <= 20; v++){
+      let change = v + "-" + h;
+      $("#" + change).addClass("loot");
+    };
+  };
+
+  for(let h = 15; h <= 19; h++){
+    for(let v = 20; v <= 20; v++){
+      let change = v + "-" + h;
+      $("#" + change).addClass("player");
+    };
+  };
+
+  for(let h = 1; h <= 40; h++){
+    for(let v = 23; v <= 23; v++){
+      let change = v + "-" + h;
+      $("#" + change).addClass("player");
+    };
+  };
+
+  for(let h = 1; h <= 40; h++){
+    for(let v = 35; v <= 38; v++){
+      let change = v + "-" + h;
+      $("#" + change).addClass("rgb-grey");
+    };
+  };
+
+}
 
 //title screen
 function title(){
   clearLevel();
+  dispTitle();
+  colorTitle();
   tscreen = true;
 
-  for (let i = 11; i < 30; i++){
-    $("#"+ "10" + "-" + i).addClass("back-grey");
-  };
+  $("#7-19").text("Y");
+  $("#7-20").text("E");
+  $("#7-21").text("T");
+  $("#7-22").text("I");
 
-  for (let i = 15; i < 28; i++){
-    for(let c = 22; c < 25; c++){
-      $("#"+ c + "-" + i).addClass("rgb-grey");
-    };
-  };
+  $("#10-12").text("T");
+  $("#10-13").text("h");
+  $("#10-14").text("e");
 
-  $("#10-11").text("Y");
-  $("#10-12").text("E");
-  $("#10-13").text("T");
-  $("#10-14").text("I");
-  $("#10-15").text(":");
-
-  $("#10-17").text("T");
-  $("#10-18").text("h");
+  $("#10-16").text("A");
+  $("#10-17").text("d");
+  $("#10-18").text("v");
   $("#10-19").text("e");
-
-  $("#10-21").text("A");
-  $("#10-22").text("d");
-  $("#10-23").text("v");
+  $("#10-20").text("n");
+  $("#10-21").text("t");
+  $("#10-22").text("u");
+  $("#10-23").text("r");
   $("#10-24").text("e");
-  $("#10-25").text("n");
-  $("#10-26").text("t");
-  $("#10-27").text("u");
-  $("#10-28").text("r");
+
+  $("#10-26").text("G");
+  $("#10-27").text("a");
+  $("#10-28").text("m");
   $("#10-29").text("e");
 
-  $("#22-15").text("1");
-  $("#22-16").text(".");
-  $("#22-17").text("N");
-  $("#22-18").text("e");
-  $("#22-19").text("w");
+  $("#20-15").text("P");
+  $("#20-16").text("r");
+  $("#20-17").text("e");
+  $("#20-18").text("s");
+  $("#20-19").text("s");
 
-  $("#22-21").text("G");
-  $("#22-22").text("a");
-  $("#22-23").text("m");
-  $("#22-24").text("e");
+  $("#20-21").text("E");
+  $("#20-22").text("N");
+  $("#20-23").text("T");
+  $("#20-24").text("E");
+  $("#20-25").text("R");
 
-  $("#24-15").text("2");
-  $("#24-16").text(".");
-  $("#24-17").text("H");
-  $("#24-18").text("e");
-  $("#24-19").text("l");
-  $("#24-20").text("p");
+  $("#23-17").text("T");
+  $("#23-18").text("o");
+
+  $("#23-20").text("B");
+  $("#23-21").text("e");
+  $("#23-22").text("g");
+  $("#23-23").text("i");
+  $("#23-24").text("n");
+
+  $("#35-12").text("(");
+  $("#35-13").text("C");
+  $("#35-14").text(")");
+
+  $("#35-16").text("C");
+  $("#35-17").text("o");
+  $("#35-18").text("p");
+  $("#35-19").text("y");
+  $("#35-20").text("r");
+
+  $("#35-21").text("i");
+  $("#35-22").text("g");
+  $("#35-23").text("h");
+  $("#35-24").text("t");
+
+  $("#35-26").text("2");
+  $("#35-27").text("0");
+  $("#35-28").text("2");
+  $("#35-29").text("5");
+
+  $("#38-15").text("D");
+  $("#38-16").text("a");
+  $("#38-17").text("v");
+  $("#38-18").text("e");
+
+  $("#38-20").text("R");
+  $("#38-21").text("u");
+  $("#38-22").text("s");
+  $("#38-23").text("s");
+  $("#38-24").text("e");
+  $("#38-25").text("l");
+  $("#38-26").text("l");
 
 };
 
 //on victory
 function win(){
+
+  rstCam();
   clearLevel();
   allGrey();
+  dispTitle();
+
   begin = false;
 
-  let g = player.gold.toString();
-  if (player.gold > 99) {
-    g = "99";
-  };
+  const g = player.gold;
+  const score = g.toString();
 
-  $("#15-14").text("C");
-  $("#15-15").text("O");
-  $("#15-16").text("N");
-  $("#15-17").text("G");
-  $("#15-18").text("R");
-  $("#15-19").text("A");
-  $("#15-20").text("T");
+  $("#15-13").text("C");
+  $("#15-14").text("O");
+  $("#15-15").text("N");
+  $("#15-16").text("G");
+  $("#15-17").text("R");
+  $("#15-18").text("A");
+  $("#15-19").text("T");
+  $("#15-20").text("U");
 
-  $("#15-21").text("U");
-  $("#15-22").text("L");
-  $("#15-23").text("A");
-  $("#15-24").text("T");
-  $("#15-25").text("I");
-  $("#15-26").text("O");
-  $("#15-27").text("N");
+  $("#15-21").text("L");
+  $("#15-22").text("A");
+  $("#15-23").text("T");
+  $("#15-24").text("I");
+  $("#15-25").text("O");
+  $("#15-26").text("N");
+  $("#15-27").text("S");
+  $("#15-28").text("!");
 
-  $("#17-17").text("Y");
-  $("#17-18").text("O");
-  $("#17-19").text("U");
-  $("#17-20").text("");
+  $("#18-17").text("Y");
+  $("#18-18").text("O");
+  $("#18-19").text("U");
 
-  $("#17-21").text("W");
-  $("#17-22").text("I");
-  $("#17-23").text("N");
-  $("#17-24").text("!");
+  $("#18-21").text("W");
+  $("#18-22").text("I");
+  $("#18-23").text("N");
+  $("#18-24").text("!");
 
-  $("#20-17").text("G");
-  $("#20-18").text("O");
-  $("#20-19").text("L");
-  $("#20-20").text("D");
+  $("#24-17").text("G");
+  $("#24-18").text("O");
+  $("#24-19").text("L");
+  $("#24-20").text("D");
 
-  $("#20-21").text(":");
-  $("#20-22").text("");
-  $("#20-23").text(g.charAt(0));
-  $("#20-24").text(g.charAt(1));
+  $("#24-21").text(":");
+  $("#24-22").text("");
+  $("#24-23").text(score.charAt(0));
+  $("#24-24").text(score.charAt(1));
 
 };
 
@@ -422,34 +550,21 @@ function win(){
 function loose(){
   clearLevel();
   allGrey();
+  rstCam();
+  dispTitle();
+
   begin = false;
 
-  $("#13-15").text("Y");
-  $("#13-16").text("O");
-  $("#13-17").text("U");
-  $("#13-18").text("");
-  $("#13-19").text("H");
-  $("#13-20").text("A");
+  $("#15-16").text("G");
+  $("#15-17").text("A");
+  $("#15-18").text("M");
+  $("#15-19").text("E");
 
-  $("#13-21").text("V");
-  $("#13-22").text("E");
-  $("#13-23").text("");
-  $("#13-24").text("D");
-  $("#13-25").text("I");
-  $("#13-26").text("E");
-  $("#13-27").text("D");
-
-  $("#16-16").text("G");
-  $("#16-17").text("A");
-  $("#16-18").text("M");
-  $("#16-19").text("E");
-  $("#16-20").text("");
-
-  $("#16-21").text("O");
-  $("#16-22").text("V");
-  $("#16-23").text("E");
-  $("#16-24").text("R");
-  $("#16-25").text("!");
+  $("#15-21").text("O");
+  $("#15-22").text("V");
+  $("#15-23").text("E");
+  $("#15-24").text("R");
+  $("#15-25").text("!");
 
 };
 
@@ -484,6 +599,14 @@ function noGrey(){
       let change = v + "-" + h;
       $("#" + change).removeClass("rgb-grey");
       $("#" + change).removeClass("back-grey");
+      $("#" + change).removeClass("player");
+      $("#" + change).removeClass("monster");
+      $("#" + change).removeClass("door");
+      $("#" + change).removeClass("floor");
+      $("#" + change).removeClass("wall");
+      $("#" + change).removeClass("exit");
+      $("#" + change).removeClass("entry");
+      $("#" + change).removeClass("loot");
     };
   };
 };
@@ -525,6 +648,7 @@ function addHud(){
   $(".lv").text("LVL: " + lv);
   $(".xp").text("EXP: " + xp + " / " + nl);
   $(".gd").text("Gold: " + gold);
+  $(".fl").text("Floor: " + dfloor);
   $(".stats").removeClass("back-black");
   $(".stats").addClass("back-grey");
 };
@@ -534,6 +658,8 @@ function remHud(){
   $(".hp").text("");
   $(".lv").text("");
   $(".xp").text("");
+  $(".gd").text("");
+  $(".fl").text("");
   $(".bseg").removeClass("back-yellow");
   $(".stats").removeClass("back-grey");
   $(".stats").addClass("back-black");
@@ -771,22 +897,34 @@ function genRndWalls(num){
 };
 
 //generate a random rectangle room within bounds
-function createRoom(){
+//accepts coords to specify placement location in grid
+function createRoom(dx, dy){
+
+  //location for upper left room corner
+  let xloc = 0;
+  let yloc = 0;
 
   let room = {
     x : [],
     y : [], 
   };
 
-  //select room size from 4x4 to 10x10 (internal 2x2 to 8x8)
-  let w = Math.floor(Math.random() * 6 + 5);
-  let h = Math.floor(Math.random() * 6 + 5);
+  //select room size from 8x8 to 12x12 (internal 6x6 to 10x10)
+  let w = Math.floor(Math.random() * 6 + 7);
+  let h = Math.floor(Math.random() * 6 + 7);
 
-  //choose location for room's top left corner
-  let xloc = Math.floor(Math.random() * (level.w - w + 1)) + 1;
-  let yloc = Math.floor(Math.random() * (level.h - h + 1)) + 1;
+  //if suppled coords, use them for room location
+  if (dx && dy){
+    xloc = dx;
+    yloc = dy;
+  }
+  else{
+    //choose random location for room's top left corner
+    xloc = Math.floor(Math.random() * (level.w - w + 1)) + 1;
+    yloc = Math.floor(Math.random() * (level.h - h + 1)) + 1;
+  };
 
-  // console.log("room size: " + w + "x" + h + " loc: " + xloc + " " + yloc);
+  console.log("ROOM size: " + w + "x" + h + " loc: x" + xloc + " y" + yloc);
 
   //top (left to right)
   for (let i = xloc; i < (xloc + w); i++){
@@ -821,35 +959,35 @@ function createRoom(){
       floor.y.push(yax);
     };
 
-  };  
+  };
 
-  //make door
-  // makeDoor(xloc, yloc, w, h, room);
+  //make random door in room
+  makeDoor(xloc, yloc, w, h, room);
 
   //add room to wall array
   wall = room;
 
 };
 
-//adds a random door to top of room
+//adds a random door to room
 function makeDoor(xloc, yloc, w, h, room){
 
-  //random carinal direction for door
+  //carinal direction for door
   let pool = [0,1,2,3];
   let loc = 0;
 
   //prevent door spawning on outer bound
   if(xloc == 1){
-    loc =  pool.indexOf(2);
+    loc = pool.indexOf(2);
     pool.splice(loc, 1);
   } if(yloc == 1){
-    loc =  pool.indexOf(0);
+    loc = pool.indexOf(0);
     pool.splice(loc, 1);
   } if(xloc + w - 1 == 40){
-    loc =  pool.indexOf(3);
+    loc = pool.indexOf(3);
     pool.splice(loc, 1);
   } if(yloc + h - 1 == 40){
-    loc =  pool.indexOf(1);
+    loc = pool.indexOf(1);
     pool.splice(loc, 1);
   };
 
@@ -866,88 +1004,82 @@ function makeDoor(xloc, yloc, w, h, room){
   let pos = 0;
   let spc = 0;
   let grd = 0;
-  let grda = 0;
+  let doorx = 0;
+  let doory = 0;
 
-  //random door in direction 'dir'
+  //door in top
   if (dir == 0){
-    //pos in wall exluding outer edge
+    //pos in wall exluding corner
     pos = Math.floor(Math.random() * (w - 2) + 1);
     //space before
     spc = xloc;
     //grid position
     grd = pos + spc;
-    //adjusted pos for room array
-    grda = pos;
+    //calculated door x and y coords
+    doorx = grd;
+    doory = yloc;
 
-    //add to door array
-    door.x.push(grd);
-    door.y.push(yloc);
-    //add door to floor array (floor under door)
-    floor.x.push(grd);
-    floor.y.push(yloc);
-  
-    //door in bottom
+  //door in bottom
   } else if (dir == 1){
-    //pos in wall exluding outer edge
+    //pos in wall exluding corner
     pos = Math.floor(Math.random() * (w - 2) + 1);
     //space before
     spc = xloc;
     //grid position
     grd = pos + spc;
-    //adjusted pos for room array
-    grda = pos + w + (h * 2) - 4;
-
-    //add to door array
-    door.x.push(grd);
-    door.y.push(yloc + (h - 1));
-    //add door to floor array (floor under door)
-    floor.x.push(grd);
-    floor.y.push(yloc + (h - 1));
+    //calculated door x and y coords
+    doorx = grd;
+    doory = yloc + (h - 1);
   
-    //door in left
+  //door in left
   } else if (dir == 2){
-    //pos in wall exluding outer edge
+    //pos in wall exluding corner
     pos = Math.floor(Math.random() * (h - 2) + 1);
     //space before
     spc = yloc;
     //grid position
     grd = pos + spc;
-    //adjusted pos for room array
-    grda = pos + w - 1;
+    //calculated door x and y coords
+    doorx = xloc;
+    doory = grd;
 
-    //add to door array
-    door.x.push(xloc);
-    door.y.push(grd);
-    //add door to floor array (floor under door)
-    floor.x.push(xloc);
-    floor.y.push(grd);
-
-    //door in right
+  //door in right
   } else if (dir == 3){
-    //pos in wall exluding outer edge
+    //pos in wall exluding corner
     pos = Math.floor(Math.random() * (h - 2) + 1);
     //space before
     spc = yloc;
     //grid position
     grd = pos + spc;
-    //adjusted pos for room array
-    grda = pos + (h - 2) + w - 1;
+    //calculated door x and y coords
+    doorx = xloc + (w - 1);
+    doory = grd;
 
-    //add to door array
-    door.x.push(xloc + (w - 1));
-    door.y.push(grd);
-    //add door to floor array (floor under door)
-    floor.x.push(xloc + (w - 1));
-    floor.y.push(grd);
   };
 
-  //make room in wall array for door
-  //number of doors already added
-  let sp = grda;
+  //add new door to existing door and floor arrays
+  door.x.push(doorx);
+  door.y.push(doory);
+  floor.x.push(doorx);
+  floor.y.push(doory);
 
-  //if second door after first, second door array pos out by +1
-  room.x.splice(sp, 1);
-  room.y.splice(sp, 1);
+  insertDoor(doorx, doory);
+
+  //find x and y coords in room array and splice space for door
+  function insertDoor(doorx, doory){
+
+    let len = room.x.length;
+
+    for(let i = 0; i < len; i++){
+      if(doorx == room.x[i]){ 
+        //if matching x found, check y
+        if (doory == room.y[i]){ 
+          room.x.splice(i, 1);
+          room.y.splice(i, 1);
+        };
+      };
+    };
+  };
 
   // console.log("pos: " + pos + " spc: " + spc + " grd: " + grd + " grda: " + grda);
 
@@ -956,7 +1088,7 @@ function makeDoor(xloc, yloc, w, h, room){
 //print all walls
 function addWalls(){
   for(let i = 0; i < wall.x.length; i++){
-    $("#" + wall.y[i] + "-" + wall.x[i]).text("#");
+    $("#" + wall.y[i] + "-" + wall.x[i]).text("");
     $("#" + wall.y[i] + "-" + wall.x[i]).addClass("wall");
   };
 };
@@ -1052,7 +1184,7 @@ function genMon2(){
 
       //pick a random monster from types
       const types = Object.keys(monData).length;
-      let pick = Math.floor(Math.random() * (types - 1));
+      let pick = Math.floor(Math.random() * (types));
     
       //asign that type to live monster array
       mon2[i] = Object.create(monData[pick]);
@@ -1527,12 +1659,12 @@ function moveP(ent, dir){
       remPlr();
       remLight(ent);
       move1(ent, dir);
+      movCam();
       addEnt();
       addExt();
       addAllLoot();
       addPlr();
       addLight(ent);
-
       moves++;
       monTurn();
 
@@ -1699,10 +1831,12 @@ function openDoor(dir){
 //when moving (bumping) into another entity monster/player
 function attack(ent, tar){
 
-  //roll for attack
-  let hitChance = 50 + (ent.atk - tar.def) * 2.5;
+  //roll for attack chance to hit
+  //if attack == defense, hit chance is 50%
+  //if attack is double defense, then hit chance is max
+  let hitChance = (ent.atk / (tar.def * 2)) * 100;
   let hitRoll = Math.floor(Math.random() * (100) + 1);
-  //min 5%, max 95%
+  //chance to hit min 5%, max 95%
   if (hitChance < 5){
     hitChance = 5;
   };
