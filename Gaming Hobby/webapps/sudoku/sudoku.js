@@ -33,14 +33,12 @@ let difficulty = "m";
 // -----------------------------------------------------------------------------------
 
 // Major Bugs
-// 1.  solver does not re-print backup grid to UI on restore
+// 1. when solver repeats due to failed solve - replaces user-entered numbers with uneditable numbers.
 
 //------------------------------------------------------------------------------------
 
 // Minor Bugs
-// 1.  can generate impossible f columns (~5% chance)
-//        will restart generation on detection via function
-// 2.  does not update existing highlighted numbers if they become legal
+// 1.  does not update existing highlighted numbers if they become legal
 
 //------------------------------------------------------------------------------------
 
@@ -163,8 +161,8 @@ function solve(){
       //if solver fails more than three times, break solver
       if (fails > 1999){
         i = 11;
-        console.log("Solve attempts " + fails + " - cancelling - try again?");
-        alert("Solve attempts exceeding limit. Cancelling solve. You may try again.")
+        console.log("Solve attempts " + fails + " - cancelling");
+        alert("Unable to solve Sudoku. Please check grid for errors.");
         break;
       };
     };
